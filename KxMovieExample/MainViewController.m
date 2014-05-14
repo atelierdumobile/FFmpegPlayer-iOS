@@ -151,13 +151,15 @@
 
     // Add all the movies present in the app bundle.
     NSBundle *bundle = [NSBundle mainBundle];
-    [ma addObjectsFromArray:[bundle pathsForResourcesOfType:@"mp4" inDirectory:@"SampleMovies"]];
-    [ma addObjectsFromArray:[bundle pathsForResourcesOfType:@"mov" inDirectory:@"SampleMovies"]];
-    [ma addObjectsFromArray:[bundle pathsForResourcesOfType:@"m4v" inDirectory:@"SampleMovies"]];
-    [ma addObjectsFromArray:[bundle pathsForResourcesOfType:@"wav" inDirectory:@"SampleMovies"]];
-
+    NSArray *fileExts = @[@"mp3", @"caff", @"aiff", @"ogg", @"wma", @"wav",
+                          @"m4a", @"m4v",  @"wmv",  @"3gp", @"mp4", @"mov",
+                          @"avi", @"mkv",  @"mpeg", @"mpg", @"flv", @"vob"];
+    for (NSString *fileExt in fileExts)
+    {
+        [ma addObjectsFromArray:[bundle pathsForResourcesOfType:fileExt inDirectory:@"SampleMovies"]];
+    }
     [ma sortedArrayUsingSelector:@selector(compare:)];
-    
+
     _localMovies = [ma copy];
 }
 
