@@ -75,11 +75,13 @@
 #endif
 }
 
+#ifdef DEBUG_AUTOPLAY
 - (void)launchDebugTest
 {
-    [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:4
+    [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:DEBUG_AUTOPLAY
                                                                               inSection:1]];
 }
+#endif
 
 - (void)didReceiveMemoryWarning
 {

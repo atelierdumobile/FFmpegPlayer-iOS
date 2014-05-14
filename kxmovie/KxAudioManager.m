@@ -304,6 +304,10 @@ static OSStatus renderCallback (void *inRefCon, AudioUnitRenderActionFlags	*ioAc
 - (BOOL) renderFrames: (UInt32) numFrames
                ioData: (AudioBufferList *) ioData
 {
+#ifdef DEBUG_FORCE_MUTE
+    return YES;
+#endif
+
     for (int iBuffer=0; iBuffer < ioData->mNumberBuffers; ++iBuffer) {
         memset(ioData->mBuffers[iBuffer].mData, 0, ioData->mBuffers[iBuffer].mDataByteSize);
     }

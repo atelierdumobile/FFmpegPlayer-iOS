@@ -15,13 +15,20 @@
 
 
 
+#ifdef DEBUG
+
 // Launch automatically a video, to accelerate the debug tests.
-#define DEBUG_AUTOPLAY
+//#define DEBUG_AUTOPLAY 0
 
-
+// Force the audio to be muted, to avoid
+//#define DEBUG_FORCE_MUTE
 
 // Which logger system to use NSLogger or NSLog.
 #define USE_NSLOGGER
+
+#endif
+
+
 
 #ifdef DEBUG
 #ifdef USE_NSLOGGER
@@ -32,4 +39,8 @@
 #else
 #    define LoggerApp(...)          while(0) {}
 #endif
+
+
+
+
 
